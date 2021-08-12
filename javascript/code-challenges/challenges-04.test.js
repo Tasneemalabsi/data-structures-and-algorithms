@@ -276,29 +276,15 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
+  let weekDays = {
+    'Monday': 1,
+    'Tuesday': 2,
+    'Wednesday': 3,
+    'Thursday': 4,
+    'Friday': 5
+  };
   arr.sort((a, b) => {
-    if (a.dayOfWeek === 'Monday' || b.dayOfWeek === 'Monday') {
-      a.dayOfWeek = 1;
-    }
-    if (a.dayOfWeek === 'Tuesday' || b.dayOfWeek === 'Tuesday') {
-      a.dayOfWeek = 2;
-    }
-    if (a.dayOfWeek === 'Wednesday' || b.dayOfWeek === 'Wednesday') {
-      a.dayOfWeek = 3;
-    }
-    if (a.dayOfWeek === 'Thursday' || b.dayOfWeek === 'Thursday') {
-      a.dayOfWeek = 4;
-    }
-    if (a.dayOfWeek === 'Friday' || b.dayOfWeek === 'Friday') {
-      a.dayOfWeek = 5;
-    }
-    if (a.dayOfWeek < b.dayOfWeek) {
-      return -1;
-    } else if (a.dayOfWeek > b.dayOfWeek) {
-      return 1;
-    } else {
-      return 0;
-    }
+    return weekDays[a.dayOfWeek] - weekDays[b.dayOfWeek];
   });
   return arr;
 
@@ -315,21 +301,36 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
 const sortSchedule = (arr) => {
+  let weekDays = {
+    'Monday': 1,
+    'Tuesday': 2,
+    'Wednesday': 3,
+    'Thursday': 4,
+    'Friday': 5
+  };
   arr.sort((a, b) => {
-    if (a.start < b.start) {
+    if (weekDays[a.dayOfWeek] < weekDays[b.dayOfWeek]) {
       return -5;
     }
-    if (a.start > b.start) { return 1; }
+    if (weekDays[a.dayOfWeek] > weekDays[b.dayOfWeek]) { return 1 };
 
-    if (a.start === b.start) {
-      if (a.end - a.start < b.end - b.start) {
+
+    if (weekDays[a.dayOfWeek] - weekDays[b.dayOfWeek] === 0) {
+      if (a.start < b.start) {
         return -5;
       }
-      if (a.end - a.start > b.end - b.start) { return 1; }
+      if (a.start > b.start) { return 1; }
 
+      if (a.start === b.start) {
+        if (a.end - a.start < b.end - b.start) {
+          return -5;
+        }
+        if (a.end - a.start > b.end - b.start) { return 1; }
+
+
+      }
 
     }
-
   }
   );
   return arr;
@@ -467,7 +468,7 @@ describe('Testing challenge 11', () => {
   });
 });
 
-xdescribe('Testing challenge 12', () => {
+describe('Testing challenge 12', () => {
   test('It should sort meetings by the day on which they happen', () => {
     const sortedMeetings = sortMeetingsByDay(meetings);
     expect(sortedMeetings.slice(0, 2)).toEqual(expect.arrayContaining([new Meeting('Monday', '0900', '0945'), new Meeting('Monday', '0900', '1000')]));
@@ -477,7 +478,7 @@ xdescribe('Testing challenge 12', () => {
   });
 });
 
-xdescribe('Testing challenge 13', () => {
+describe('Testing challenge 13', () => {
   test('It should sort meetings by when they happen', () => {
     expect(sortSchedule(meetings)).toStrictEqual([
       new Meeting('Monday', '0900', '0945'),
