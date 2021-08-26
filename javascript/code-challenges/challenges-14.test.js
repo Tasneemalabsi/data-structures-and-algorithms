@@ -186,57 +186,7 @@ Here is a sample board:
 ------------------------------------------------------------------------------------------------ */
 // I didn't solve this challenge by my own so I can't get full credit regarding to it
 const detectTicTacToeWin = (board) => {
-  for (let column = 0; column < board.length; column++) {
-    let rows = board[column][0];
-    let columns = board[0][column];
-    let first = board[0][0];
-    let last = board[0][board.length - 1];
-    if (rows !== '') {
-      for (let row = 0; row < board.length; row++) {
-        if (rows !== board[column][row]) {
-          break;
-        } else {
-          if (row === board.length - 1) {
-            return true;
-          }
-        }
-      }
-    }
-    if (columns !== '') {
-      for (let row = 0; row < board.length; row++) {
-        if (columns !== board[row][column]) {
-          break;
-        } else {
-          if (row === board.length - 1) {
-            return true;
-          }
-        }
-      }
-    }
-    if (first !== '') {
-      for (let row = 0; row < board.length; row++) {
-        if (first !== board[row][row]) {
-          break;
-        } else {
-          if (row === board.length - 1) {
-            return true;
-          }
-        }
-      }
-    }
-    if (last !== '') {
-      for (let row = 0; row < board.length; row++) {
-        if (last !== board[row][board.length - 1 - row]) {
-          break;
-        } else {
-          if (row === board.length - 1) {
-            return true;
-          }
-        }
-      }
-    }
-  }
-  return false;
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
