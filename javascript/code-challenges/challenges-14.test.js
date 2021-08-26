@@ -184,7 +184,7 @@ Here is a sample board:
   ['X', 'O', 'X'],
 ];
 ------------------------------------------------------------------------------------------------ */
-
+// I didn't solve this challenge by my own so I can't get full credit regarding to it
 const detectTicTacToeWin = (board) => {
   for (let column = 0; column < board.length; column++) {
     let rows = board[column][0];
