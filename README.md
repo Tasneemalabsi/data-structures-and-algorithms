@@ -23,4 +23,4 @@ To run your tests
 |challenge      | link |
 | ----------- | ----------- |
 | challenge 1     |   [challenge1-link](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/array-reverse/challenges401/README.md)   |
-| challenge 2     |   [challenge2-link](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/array-insert-shift/challenges401/README.md)   |
+| challenge 2     |   [challenge2-link](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/array-insert-shift/challenges401/array-shift-challenge/README.md)   |
