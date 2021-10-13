@@ -20,6 +20,8 @@ To run your tests
 
 ### 401 Data Structures, Code Challenges
 
-|challenge      | link |
-| ----------- | ----------- |
-| challenge 1     |      |
+here is the table of contents of the code-challenges of 401:
+
+- [array-reverse]()
+- [array-insert-shift]()
+- [array-binary-search](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/array-binary-search/python/code_challenges/array-binary-search/README.md)
