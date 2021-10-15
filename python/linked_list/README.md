@@ -8,6 +8,7 @@ create a singly linked list with inserting a new node into it, check existing va
 - create a class for the linked list
 - create a constructor function to implement data in the first node, create functions to add new nodes, check whether values exist or not and print all of the values as a string .
 - for insert method:
+
                     big O of n for time // O(1) -> constant
 
                     big O of n for space // O(1) -> constant
