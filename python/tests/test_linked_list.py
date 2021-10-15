@@ -62,3 +62,24 @@ def test_linked_list_insert():
   # Act
   actual = ll.insert()
 
+def test_linked_list_includes_if_true():
+  # Arrange
+  expected = True
+  ll = LinkedList()
+  ll.insert("any")
+  # Act
+  actual = ll.includes("any")
+
+  #Assert
+  assert actual == expected
+
+def test_linked_list_includes_if_false():
+  # Arrange
+  expected = False
+  ll = LinkedList()
+  ll.insert("any")
+  # Act
+  actual = ll.includes("not any")
+
+  #Assert
+  assert actual == expected

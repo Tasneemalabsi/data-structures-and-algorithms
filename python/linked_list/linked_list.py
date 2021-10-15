@@ -47,7 +47,7 @@ class LinkedList:
     # create new node
     self.head = Node(value, self.head)
 
-  def search(self, value):
+  def includes(self, value):
 
 
       current = self.head
