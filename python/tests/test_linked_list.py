@@ -83,3 +83,20 @@ def test_linked_list_includes_if_false():
 
   #Assert
   assert actual == expected
+
+def test_to_string():
+   #Arrange
+    expected = "{ my } -> { name } -> { is } -> { tasneem } -> NULL"
+
+    ll = LinkedList()
+    ll.insert("my")
+    ll.insert("name")
+    ll.insert("is")
+
+    ll.insert("tasneem")
+
+    #Act
+    actual = ll.to_string()
+
+    #Assert
+    assert actual == expected

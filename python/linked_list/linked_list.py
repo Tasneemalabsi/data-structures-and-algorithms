@@ -61,12 +61,14 @@ class LinkedList:
 
       return False
   def to_string(self):
-    the_stringified_result = ''
+      
     current = self.head
 
-    while current != None:
+    the_stringified_result = ''
 
-      the_stringified_result += str(current.data)
+    while current:
+
+      the_stringified_result += f"{ {current.data} } -> "
       current = current.next
     the_stringified_result=the_stringified_result+"NULL"
     return the_stringified_result
