@@ -1,4 +1,4 @@
- # Insert to Middle of an Array
+# Insert to Middle of an Array
 
 this challenge describes a function that takes a list and a value as an input and returns a list with the input value located at the middle of it
 
