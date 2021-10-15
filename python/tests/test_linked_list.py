@@ -60,7 +60,9 @@ def test_linked_list_insert():
   expected = 1
   ll = LinkedList()
   # Act
-  actual = ll.insert()
+  actual = ll.insert(1)
+  #Assert
+  actual == expected
 
 def test_linked_list_includes_if_true():
   # Arrange
@@ -86,14 +88,14 @@ def test_linked_list_includes_if_false():
 
 def test_to_string():
    #Arrange
-    expected = "{ my } -> { name } -> { is } -> { tasneem } -> NULL"
+    expected = "{ d } -> { c } -> { b } -> { a } -> NULL"
 
     ll = LinkedList()
-    ll.insert("my")
-    ll.insert("name")
-    ll.insert("is")
+    ll.insert('a')
+    ll.insert('b')
+    ll.insert('c')
 
-    ll.insert("tasneem")
+    ll.insert('d')
 
     #Act
     actual = ll.to_string()
