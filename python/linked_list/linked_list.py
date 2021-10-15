@@ -49,11 +49,19 @@ class LinkedList:
 
   def includes(self, value):
 
+      """"
+    includes checks whether a certain value exists in a node or not
+
+    arguments:
+    value : any
+
+    returns: boolean
+    """
 
       current = self.head
 
 
-      while current != None:
+      while current:
           if current.data == value:
               return True
 
@@ -61,6 +69,14 @@ class LinkedList:
 
       return False
   def to_string(self):
+    """
+    to_string shows all the values in the linked list as a string with a specific pattern
+
+    arguments:
+    none
+
+    returns: string
+    """
 
     current = self.head
 
