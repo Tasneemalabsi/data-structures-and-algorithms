@@ -91,63 +91,81 @@ class LinkedList:
     return the_stringified_result
 
   def append(self, value):
-    # create a new node
-    new_node = Node(value)
+    """
+    a method that adds a new node at the end of the linked list
+
+    arguments:
+    value : any
+
+    returns: None
+
+    """
+    
     # check if the linked list is empty or not
     if self.head is None:
       self.head=Node(value)
 
     current =self.head
-
+    # if it's not empty, loop through the linked list until we reach the last node
     while current.next:
       current= current.next
-
-    current.next=new_node
+    # creates the new node after the last node in the linked last
+    current.next=Node(value)
 
   def insert_before(self,value,new_value):
-      value_exists = False
-      current = self.head
-      if current and current.data == value:
-          new_node = Node(new_value, self.head)
-          self.head = new_node
-      else:
+    """
+    a method that adds a new node before a given value in a specific node
+
+    arguments:
+    value : any value in the linked list
+    new_value: any
+
+    returns: None
+
+    """
+    # declare a variable that indicates if the value we want to insert before exists in the linked-list or not
+    value_exists = False
+    current = self.head
+    # check if the linked list has only one node, so we are going to add the new node to the head of the linked list
+    if current and current.data == value:
+        new_node = Node(new_value, self.head)
+        self.head = new_node
+    # else loop through the linked list until we reach the given value
+    else:
         while current.next:
             if current.next.data == value:
                 value_exists =True
                 break
             current=current.next
+        # after finding the value, add the node before it, or to the next of the previous value .
         if value_exists:
             new_node=Node(new_value, current.next)
             current.next= new_node
+        # if the input value doesn't exist in the linked list, raise an exception
         else:
             raise Exception('the value you entered does not exist in the linked list')
 
-#   def insert_after(self,value,new_value):
-#       value_exists = False
-#       current = self.head
-#       if current and current.data == value:
-#           new_node = Node(new_value, self.head)
-#           self.head = new_node
-#       else:
-#         while current.next:
-#             if current.next.data == value:
-#                 value_exists =True
-#                 break
-#             current=current.next
-#         if value_exists:
-#             new_node=Node(new_value, current.next)
-#             current.next= new_node
-#         else:
-#             raise Exception('the value you entered does not exist in the linked list')
-
   def insert_after(self,value,new_value):
+        """
+        a method that adds a new node after a given value in a specific node
+
+        arguments:
+        value : any value in the linked list
+        new_value: any
+
+        returns: None
+
+        """
         current=self.head
+       # loop through the linked list until we find the input value
         while current:
             if current.data==value:
                 break
             current=current.next
+       # raise an exception if the value doesn't exist
         if current is None:
             raise Exception('node is not found')
+       # add a new node after the given value, at the next to this specific value
         new_node = Node(new_value, current.next)
         current.next= new_node
 
