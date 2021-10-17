@@ -102,3 +102,39 @@ def test_to_string():
 
     #Assert
     assert actual == expected
+
+def test_append():
+    #Arrange
+    expected_value = 'd'
+    #Act
+    ll=LinkedList()
+    ll.append('d')
+
+    actual =ll.head
+    # getting the last node
+    while actual.next:
+
+        actual= actual.next
+
+    # Assert
+    assert actual.data == expected_value
+
+def test_insert_before():
+    ll=LinkedList()
+    ll.insert('a')
+    ll.insert('b')
+    ll.insert_before('a','c')
+    expected="{ b } -> { c } -> { a } -> NULL"
+    actual=ll.__str__()
+    assert actual==expected
+
+
+
+
+
+
+
+
+
+
+

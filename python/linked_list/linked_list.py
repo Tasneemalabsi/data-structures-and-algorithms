@@ -47,6 +47,7 @@ class LinkedList:
     # create new node
     self.head = Node(value, self.head)
 
+
   def includes(self, value):
 
       """"
@@ -88,3 +89,40 @@ class LinkedList:
       current = current.next
     the_stringified_result=the_stringified_result+"NULL"
     return the_stringified_result
+
+  def append(self, value):
+    # create a new node
+    new_node = Node(value)
+    # check if the linked list is empty or not
+    if self.head is None:
+      self.head=Node(value)
+
+    current =self.head
+
+    while current.next:
+      current= current.next
+
+    current.next=new_node
+
+  def insert_before(self,value,new_value):
+
+      current = self.head
+      if current.data == value:
+          new_node = Node(new_value)
+          new_node.next=self.head
+          self.head = new_node
+      else:
+        while current.next:
+            if current.next.data == value:
+                break
+            current=current.next
+        new_node=Node(new_value)
+        new_node.next = current.next
+        current.next= new_node
+
+
+
+
+
+
+
