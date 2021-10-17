@@ -119,17 +119,31 @@ def test_append():
     # Assert
     assert actual.data == expected_value
 
-def test_insert_before():
+def test_insert_after():
+    #Arrange
+    expected="{ c } -> { b } -> { d } -> { a } -> NULL"
+    #Act
     ll=LinkedList()
     ll.insert('a')
     ll.insert('b')
-    ll.insert_before('a','c')
-    expected="{ b } -> { c } -> { a } -> NULL"
-    actual=ll.__str__()
+    ll.insert('c')
+    ll.insert_after('b','d')
+    actual=ll.to_string()
+    #Assert
     assert actual==expected
 
 
-
+def test_insert_after():
+    #Arrange
+    expected="{ b } -> { a } -> { c } -> NULL"
+    #Act
+    ll=LinkedList()
+    ll.insert('a')
+    ll.insert('b')
+    ll.insert_after('a','c')
+    actual=ll.to_string()
+    #Assert
+    assert actual==expected
 
 
 

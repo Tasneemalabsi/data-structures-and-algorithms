@@ -105,21 +105,51 @@ class LinkedList:
     current.next=new_node
 
   def insert_before(self,value,new_value):
-
+      value_exists = False
       current = self.head
-      if current.data == value:
-          new_node = Node(new_value)
-          new_node.next=self.head
+      if current and current.data == value:
+          new_node = Node(new_value, self.head)
           self.head = new_node
       else:
         while current.next:
             if current.next.data == value:
+                value_exists =True
                 break
             current=current.next
-        new_node=Node(new_value)
-        new_node.next = current.next
-        current.next= new_node
+        if value_exists:
+            new_node=Node(new_value, current.next)
+            current.next= new_node
+        else:
+            raise Exception('the value you entered does not exist in the linked list')
 
+#   def insert_after(self,value,new_value):
+#       value_exists = False
+#       current = self.head
+#       if current and current.data == value:
+#           new_node = Node(new_value, self.head)
+#           self.head = new_node
+#       else:
+#         while current.next:
+#             if current.next.data == value:
+#                 value_exists =True
+#                 break
+#             current=current.next
+#         if value_exists:
+#             new_node=Node(new_value, current.next)
+#             current.next= new_node
+#         else:
+#             raise Exception('the value you entered does not exist in the linked list')
+
+  def insert_after(self,value,new_value):
+        current=self.head
+        while current:
+            if current.data==value:
+                break
+            current=current.next
+        if current is None:
+            raise Exception('node is not found')
+        new_node = Node(new_value, current.next)
+        current.next= new_node
 
 
 
