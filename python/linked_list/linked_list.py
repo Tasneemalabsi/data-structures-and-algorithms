@@ -100,7 +100,7 @@ class LinkedList:
     returns: None
 
     """
-    
+
     # check if the linked list is empty or not
     if self.head is None:
       self.head=Node(value)

@@ -102,24 +102,66 @@ def test_to_string():
 
     #Assert
     assert actual == expected
-
-def test_append():
+# append one node at the end
+def test_append_one_nodes():
     #Arrange
-    expected_value = 'd'
+    expected="{ b } -> { a } -> { c } -> NULL"
     #Act
     ll=LinkedList()
-    ll.append('d')
+    ll.insert('a')
+    ll.insert('b')
+    ll.append('c') #append
+    actual=ll.to_string()
+    #Assert
+    assert actual==expected
 
-    actual =ll.head
-    # getting the last node
-    while actual.next:
+# append multiple nodes
 
-        actual= actual.next
+def test_append_multiple_nodes():
+    #Arrange
+    expected="{ b } -> { a } -> { c } -> { d } -> { e } -> NULL"
+    #Act
+    ll=LinkedList()
+    ll.insert('a')
+    ll.insert('b')
+    ll.append('c') #append
+    ll.append('d') #append
+    ll.append('e') #append
+    actual=ll.to_string()
+    #Assert
+    assert actual==expected
 
-    # Assert
-    assert actual.data == expected_value
+# test inserting before a node located at the middle of the linked list
+def test_insert_before_node_in_the_middle():
+    #Arrange
+    expected="{ c } -> { d } -> { b } -> { a } -> NULL"
+    #Act
+    ll=LinkedList()
+    ll.insert('a')
+    ll.insert('b')
+    ll.insert('c')
+    ll.insert_before('b','d')
+    actual=ll.to_string()
+    #Assert
+    assert actual==expected
 
-def test_insert_after():
+# test inserting a node before the first node of a linked list
+
+def test_insert_before_node_at_the_first():
+    #Arrange
+    expected="{ d } -> { c } -> { b } -> { a } -> NULL"
+    #Act
+    ll=LinkedList()
+    ll.insert('a')
+    ll.insert('b')
+    ll.insert('c')
+    ll.insert_before('c','d')
+    actual=ll.to_string()
+    #Assert
+    assert actual==expected
+# test inserting a node after a node located at the middle of a linked list
+
+def test_insert_after_node_in_the_middle():
     #Arrange
     expected="{ c } -> { b } -> { d } -> { a } -> NULL"
     #Act
@@ -132,15 +174,17 @@ def test_insert_after():
     #Assert
     assert actual==expected
 
+# test inserting a node after the last node of a linked list
 
-def test_insert_after():
+def test_insert_after_at_the_end():
     #Arrange
-    expected="{ b } -> { a } -> { c } -> NULL"
+    expected="{ c } -> { b } -> { a } -> { d } -> NULL"
     #Act
     ll=LinkedList()
     ll.insert('a')
     ll.insert('b')
-    ll.insert_after('a','c')
+    ll.insert('c')
+    ll.insert_after('a','d')
     actual=ll.to_string()
     #Assert
     assert actual==expected
