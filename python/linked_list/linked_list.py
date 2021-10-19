@@ -195,14 +195,59 @@ class LinkedList:
       print(current.data)
       return current.data
 
+def zipLists(list1:LinkedList, list2:LinkedList):
+    # if list1 == "NULL":
+    #     return list2.to_string()
+    # if list2 == "NULL":
+    #     return list1.to_string()
 
-# if __name__=="__main__":
-#     ll = LinkedList()
-#     ll.append(20)
-#     ll.append(4)
-#     ll.append(15)
-#     ll.append(35)
-#     ll.kth_value(0)
+    zipped_list =LinkedList()
+
+    current1=list1.head
+
+    print(current1)
+    current2=list2.head
+
+    while current1 and current2:
+      node1=current1.data
+      node2=current2.data
+
+
+
+      zipped_list.append(node1)
+      current1 = current1.next
+      node1 = current2.data
+      
+      zipped_list.append(node2)
+
+      current2 = current2.next
+    return zipped_list.to_string()
+
+
+
+
+
+
+
+
+
+
+
+
+
+if __name__=="__main__":
+    l1 = LinkedList()
+    l1.append(5)
+    l1.append(6)
+    l1.append(7)
+    l1.append(8)
+    l2 = LinkedList()
+    l2.append(1)
+    l2.append(2)
+    l2.append(3)
+    l2.append(4)
+    print(zipLists(l1,l2))
+
 
 
 
