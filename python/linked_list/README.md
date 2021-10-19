@@ -6,8 +6,13 @@ singly linked list describes a linked list that only moves in one direction
 - add the kth value from the end to it, which the index of certain node starting from the tail of the linked list
 
 ## Whiteboard Process
+insertions
+
 ![linkedlist1](linked_list1.png)
 ![linkedlist2](linked_list2.png)
+
+kth value
+
 ![kth_value](kth_value.png)
 
 ## Approach & Efficiency

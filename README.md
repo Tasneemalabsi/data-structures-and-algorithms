@@ -29,3 +29,4 @@ here is the table of contents of the code-challenges of 401:
 - [array-binary-search](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/array-binary-search/python/code_challenges/array-binary-search/README.md)
 - [linked-list](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/linked-list/python/linked_list/README.md)
 - [linked-list-insertion](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/linked-list-insertions/python/linked_list/README.md)
+- [linked-list-kth](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/linked-list-kth/python/linked_list/README.md)
