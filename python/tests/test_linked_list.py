@@ -1,4 +1,4 @@
-from linked_list.linked_list import LinkedList
+from linked_list.linked_list import LinkedList, zipLists
 
 def test_import():
     assert LinkedList
@@ -249,6 +249,61 @@ def test_happy_path_k_in_middle():
     #Assert
     assert excepted==actual
 
+#test zip when two lists are the same size
+
+def test_zip_list():
+    #Arrange
+    expected = "{ a } -> { d } -> { b } -> { e } -> { c } -> { f } -> NULL"
+
+    list1 = LinkedList()
+    list1.insert("a")
+    list1.insert("b")
+    list1.insert("c")
+    list2 = LinkedList()
+    list2.insert("d")
+    list2.insert("e")
+    list2.insert("f")
+
+
+    #Act
+    actual = zipLists(list1, list2)
+
+    #Assert
+    assert actual == expected
+
+#test zip when one list has no values
+
+def test_zip_list_one_with_no_values():
+    #Arrange
+    expected = "{ f } -> { e } -> { d } -> NULL"
+
+    list1 = LinkedList()
+    list2 = LinkedList()
+    list2.insert("d")
+    list2.insert("e")
+    list2.insert("f")
+
+
+    #Act
+    actual = zipLists(list1, list2)
+
+    #Assert
+    assert actual == expected
+
+# test zip when two lists are empty
+
+def test_zip_list_two_lists_have_no_values():
+    #Arrange
+    expected = "NULL"
+
+    list1 = LinkedList()
+    list2 = LinkedList()
+
+    #Act
+    actual = zipLists(list1, list2)
+
+    #Assert
+    assert actual == expected
 
 
 

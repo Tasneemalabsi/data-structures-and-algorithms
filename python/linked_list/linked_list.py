@@ -195,32 +195,39 @@ class LinkedList:
       print(current.data)
       return current.data
 
-def zipLists(list1:LinkedList, list2:LinkedList):
-    # if list1 == "NULL":
-    #     return list2.to_string()
-    # if list2 == "NULL":
-    #     return list1.to_string()
+def zipLists(list2:LinkedList, list1:LinkedList):
+    """
+    this function takes two linked lists as arguments and returns a merged alternative list of theses two lists
 
+    arguments:
+    list2 : the first linked list
+    list1: the second linked list
+
+    returns: merged linked list
+
+    """
     zipped_list =LinkedList()
 
     current1=list1.head
-
-    print(current1)
     current2=list2.head
+    if not current1:
+        zipped_list = list2
+    elif not current2:
+        zipped_list = list1
 
-    while current1 and current2:
-      node1=current1.data
-      node2=current2.data
+    else:
 
 
 
-      zipped_list.append(node1)
-      current1 = current1.next
-      node1 = current2.data
-      
-      zipped_list.append(node2)
-
-      current2 = current2.next
+        while current1 and current2:
+            node1=''
+            node2=''
+            node1=current1.data
+            node2=current2.data
+            zipped_list.insert(node1)
+            zipped_list.insert(node2)
+            current2 = current2.next
+            current1 = current1.next
     return zipped_list.to_string()
 
 
@@ -237,15 +244,19 @@ def zipLists(list1:LinkedList, list2:LinkedList):
 
 if __name__=="__main__":
     l1 = LinkedList()
-    l1.append(5)
-    l1.append(6)
-    l1.append(7)
-    l1.append(8)
+    l1.insert(5)
+    l1.insert(6)
+    l1.insert(7)
+    l1.insert(8)
+    l1.insert(9)
+    l1.insert(10)
     l2 = LinkedList()
-    l2.append(1)
-    l2.append(2)
-    l2.append(3)
-    l2.append(4)
+    l2.insert(1)
+    l2.insert(2)
+    l2.insert(3)
+    l2.insert(4)
+    l2.insert(11)
+    l2.insert(12)
     print(zipLists(l1,l2))
 
 

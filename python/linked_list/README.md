@@ -4,6 +4,7 @@ singly linked list describes a linked list that only moves in one direction
 ## Challenge
 - create a singly linked list with inserting a new node into it, check existing values, and a string that represents all the values in the linked list, extending the class by adding more insertion methods to it .
 - add the kth value from the end to it, which the index of certain node starting from the tail of the linked list
+- add the a linked list contains of two merged input linked lists
 
 ## Whiteboard Process
 insertions
@@ -14,6 +15,10 @@ insertions
 kth value
 
 ![kth_value](kth_value.png)
+
+zip
+
+![zip](linked-list-zip.png)
 
 ## Approach & Efficiency
 - create a class for the linked list
@@ -58,6 +63,12 @@ kth value
 
                         big O of n for space // O(n) -> linear
 
+- for lists-zip method:
+
+                        big O of n for time // O(n) -> linear
+
+                        big O of n for space // O(n) -> linear
+
 
 ## API
 - insert() method: adds a new node .
@@ -70,3 +81,4 @@ kth value
 
                                        output // the value located at the kth index)
 
+- ZipLists function which take two linked lists as arguments and returns a merged list of the two input list
