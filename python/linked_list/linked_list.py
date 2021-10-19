@@ -169,6 +169,44 @@ class LinkedList:
         new_node = Node(new_value, current.next)
         current.next= new_node
 
+  def kth_value(self,index):
+      """
+      this method finds the node located at the kth value of a linked list, this k value starts counting from the tail of the list
+
+      arguments:
+        index : integer positive number which is the kth value from the end
+
+      returns: value, the data in the node located at the input kth value
+
+      """
+      current=self.head
+      length = -1
+      while current:
+          length=length+1
+          current=current.next
+      if index >= length:
+          raise Exception ('the index is out of range')
+      if index < 0:
+          raise Exception ('the index is out of range')
+      current = self.head
+      for i in range(length - index):
+
+        current = current.next
+      print(current.data)
+      return current.data
+
+
+# if __name__=="__main__":
+#     ll = LinkedList()
+#     ll.append(20)
+#     ll.append(4)
+#     ll.append(15)
+#     ll.append(35)
+#     ll.kth_value(0)
+
+
+
+
 
 
 

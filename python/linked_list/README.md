@@ -2,11 +2,13 @@
 singly linked list describes a linked list that only moves in one direction
 
 ## Challenge
-create a singly linked list with inserting a new node into it, check existing values, and a string that represents all the values in the linked list, extending the class by adding more insertion methods to it .
+- create a singly linked list with inserting a new node into it, check existing values, and a string that represents all the values in the linked list, extending the class by adding more insertion methods to it .
+- add the kth value from the end to it, which the index of certain node starting from the tail of the linked list
 
 ## Whiteboard Process
 ![linkedlist1](linked_list1.png)
 ![linkedlist2](linked_list2.png)
+![kth_value](kth_value.png)
 
 ## Approach & Efficiency
 - create a class for the linked list
@@ -45,6 +47,12 @@ create a singly linked list with inserting a new node into it, check existing va
 
                         big O of n for space // O(n) -> linear
 
+- for kth_value method:
+
+                        big O of n for time // O(2n) -> linear
+
+                        big O of n for space // O(n) -> linear
+
 
 ## API
 - insert() method: adds a new node .
@@ -53,3 +61,7 @@ create a singly linked list with inserting a new node into it, check existing va
 - append() method : add a new node to the end of the linked list
 - insert_before() method: add a new node before a node that has a given value in the linked list
 - insert_after() method: add a new node after a node that has a given value in the linked list
+- kth_value() method: returns the value in the node located at the index of the linked list if we started from the end of it (input // kth value from the end -> positive integer
+
+                                       output // the value located at the kth index)
+
