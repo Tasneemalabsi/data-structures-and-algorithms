@@ -1,6 +1,5 @@
 from linked_list.linked_list import LinkedList
 
-
 def test_import():
     assert LinkedList
 
@@ -188,6 +187,75 @@ def test_insert_after_at_the_end():
     actual=ll.to_string()
     #Assert
     assert actual==expected
+
+#kth value test 1
+def test_kth_value_greater_than_length():
+    #Arrange
+    expected=Exception('the index is out of range')
+    #Act
+    ll=LinkedList()
+    ll.append('a')
+    ll.append('b')
+    ll.append('c')
+    #Assert
+    with pytest.raises(Exception):
+        ll.kth_value(3)
+
+#kth value test 2
+def test_kth_value_equals_length():
+    #Arrange
+    expected= Exception('the index is out of range')
+
+    #Act
+    ll=LinkedList()
+    ll.append('a')
+    ll.append('a')
+    #Assert
+    with pytest.raises(Exception):
+        ll.kth_value(2)
+
+#kth value test 3
+def test_kth_value_is_negative():
+     #Arrange
+    expected= Exception('the index is out of range')
+    #Act
+    ll=LinkedList()
+    ll.append('a')
+    ll.append('b')
+    #Assert
+    with pytest.raises(Exception):
+        ll.kth_value(-1)
+#kth value test 4
+def test_linkedlist_length_is_one():
+     #Arrange
+    expected= ('a')
+    #Act
+    ll=LinkedList()
+    ll.append('a')
+    actual=ll.kth_value(0)
+    #Assert
+    assert actual==expected
+
+#kth value test 5
+def test_happy_path_k_in_middle():
+     #Arrange
+    excepted='b'
+     #Act
+    ll=LinkedList()
+    ll.append('a')
+    ll.append('b')
+    ll.append('c')
+    actual=ll.kth_value(1)
+    #Assert
+    assert excepted==actual
+
+
+
+
+
+
+
+
 
 
 
