@@ -67,7 +67,7 @@ zip
 
                         big O of n for time // O(n) -> linear
 
-                        big O of n for space // O(n) -> linear
+                        big O of n for space // O(1) -> constant
 
 
 ## API

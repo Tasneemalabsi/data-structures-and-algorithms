@@ -257,12 +257,12 @@ def test_zip_list():
 
     list1 = LinkedList()
     list1.insert("a")
-    list1.insert("b")
-    list1.insert("c")
+    list1.append("b")
+    list1.append("c")
     list2 = LinkedList()
     list2.insert("d")
-    list2.insert("e")
-    list2.insert("f")
+    list2.append("e")
+    list2.append("f")
 
 
     #Act
@@ -305,7 +305,25 @@ def test_zip_list_two_lists_have_no_values():
     #Assert
     assert actual == expected
 
+def test_zip_list_one_list_is_longer():
 
+    expected = "{ 5 } -> { 1 } -> { 7 } -> { 2 } -> { 8 } -> { 3 } -> { 9 } -> { 10 } -> NULL"
+
+    l1 = LinkedList()
+    l1.insert(5)
+    l1.append(7)
+    l1.append(8)
+    l1.append(9)
+    l1.append(10)
+    l2 = LinkedList()
+    l2.insert(1)
+    l2.append(2)
+    l2.append(3)
+    #Act
+    actual = zipLists(l1, l2)
+
+    #Assert
+    assert actual == expected
 
 
 
