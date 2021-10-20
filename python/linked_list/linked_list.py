@@ -196,39 +196,46 @@ class LinkedList:
         return current.data
 
 
-def zipLists(list1: LinkedList, list2: LinkedList):
+def zipLists(list1:LinkedList, list2:LinkedList):
+
     """
     this function takes two linked lists as arguments and returns a merged alternative list of theses two lists
-
     arguments:
     list2 : the first linked list
     list1: the second linked list
-
     returns: merged linked list
-
     """
-    node1 = 0
-    node2 = 0
-    current1 = list1.head
-    current2 = list2.head
-    if current1 is None:
+    node1=0
+    current = list1.head
+    if not list1.head:
         return list2.to_string()
-    if current2 is None:
+    if not list2.head:
         return list1.to_string()
 
-    while current1 and current2:
-        if current2:
-            node1 = current1.next
-            current1.next = current2
-            current1 = node1
+    while current.next and list2.head:
 
-        if current1:
-            node2 = current2.next
-            current2.next = current1
-            current2 = node2
+        node1 = list2.head
+        list2.head = list2.head.next
+        node1.next = current.next
+        current.next = node1
 
+        current = current.next.next
+
+    if list2.head:
+        current = list1.head
+
+        while current.next:
+            current = current.next
+        current.next = list2.head
+
+        list2.head = None
 
     return list1.to_string()
+
+
+
+
+
 
 #the technical interview practice question
 def reversed_list(list: LinkedList):
