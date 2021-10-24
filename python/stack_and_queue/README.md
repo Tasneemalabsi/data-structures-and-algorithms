@@ -4,7 +4,12 @@ stack is a type of data structure that stores data as nodes, the first node in i
 queue is a type of data structure that stores data as nodes, the first node in is first out (FIFO concept) and last in last out (LILO concept)
 
 ## Challenge
-Implement a stack and a queue with their methods adding, removing and getting the top or rear values
+Implement a stack and a queue with their methods adding, removing and getting the top or rear values, the Psuedo queue challenge requires creating a queue class using two stacks
+
+## Whiteboard Process
+Pseudo-queue
+![pseudo-queue](stack-queue-pseudo.png)
+
 
 ## Approach & Efficiency
 - create classes for stack and queue
@@ -31,6 +36,17 @@ Implement a stack and a queue with their methods adding, removing and getting th
                        big O of n for time // O(1) -> constant
 
                        big O of n for space // O(1) -> constant
+- for enqueue in Psudo-queue:
+
+                       big O of n for time // O(1) -> constant
+
+                       big O of n for space // O(1) -> constant
+- for dequeue in Psudo-queue:
+
+                       big O of n for time // O(2n) -> linear
+
+                       big O of n for space // O(n) -> linear
+
 
 
 ## API
@@ -39,3 +55,6 @@ Implement a stack and a queue with their methods adding, removing and getting th
 - pop()/dequeue() method: removes a node located at the top in a stack and at the front in the queue and returns the value in the removed node
 - is_empty() method : returns True if the stack or the queue is empty, otherwise returns false
 - peek() method : returns the value in the top of a stack and the rear of a queue
+- enqueue method in psuedo-queue challenge : adds a value to the queue using the push method in the stack instance
+- dequeue method in pseudo-queue challenge: removes the first value in the queue using push and pop methods from the stack instances
+- peek method in the psudo-queue challenge: used to test the enqueue method, linear time complexity, constant space complexity

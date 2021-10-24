@@ -1,5 +1,5 @@
 from stack_and_queue.node import Node
-from stack_and_queue.stack import Stack
+from stack_and_queue.stack import Stack, PseudoQueue
 import pytest
 
 def test_import():
@@ -101,3 +101,32 @@ def stack():
     stack.push("cat")
 
     return stack
+
+#-------------------------------pseudoqueue tests ------------------------------------
+
+# test adding values to the pseudoqueue
+def test_enqueue_in_pseudoqueue():
+
+    queue=PseudoQueue()
+    queue.enqueue(1)
+    queue.enqueue(2)
+    queue.enqueue(3)
+    assert queue.peek() == 1
+
+# test removing values from the pseudoqueue
+
+def test_dequeue_in_pseudoqueue():
+
+    queue=PseudoQueue()
+    queue.enqueue(1)
+    queue.enqueue(2)
+    queue.enqueue(3)
+    assert queue.dequeue() == 1
+
+# test removing values from an empty queue raises an exception
+def test_dequeue_from_empty_in_pseudoqueue():
+
+    queue=PseudoQueue()
+
+    with pytest.raises(Exception):
+        queue.dequeue()
