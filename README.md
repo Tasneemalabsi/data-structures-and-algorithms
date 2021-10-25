@@ -33,3 +33,4 @@ here is the table of contents of the code-challenges of 401:
 - [linked-list-zip](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/linked-list-zip/python/linked_list/README.md)
 - [stacks-and-queues](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/stack-and-queue/python/stack_and_queue/README.md)
 - [stak-queue-pseudo](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/stack-queue-pseudo/python/stack_and_queue/README.md)
+- [stack-queue-animal-shelter](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/stack-queue-animal-shelter/python/stack_and_queue/README.md)
