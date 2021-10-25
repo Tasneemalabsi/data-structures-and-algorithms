@@ -69,3 +69,4 @@ class Queue:
         returns: boolean
         """
         return not self.front
+

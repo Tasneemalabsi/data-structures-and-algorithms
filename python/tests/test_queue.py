@@ -1,5 +1,7 @@
 from stack_and_queue.node import Node
 from stack_and_queue.queue import Queue
+from stack_and_queue.stack_queue_animal_shelter import AnimalShelter, Dog, Cat
+
 import pytest
 
 def test_import():
@@ -107,4 +109,34 @@ def test_dequeue_from_empty_queue_raises_exception():
 
 
 
+#test enqueue and dequeue a dog object
+def test_dog_object():
+
+    an = AnimalShelter()
+    dog = Dog('Rufus')
+    an.enqueue(dog)
+    actual = an.dequeue('dog')
+    assert actual.name == 'Rufus'
+
+#test enqueue and dequeue a cat object
+def test_cat_object():
+
+    animal = AnimalShelter()
+    cat = Cat('Tom')
+    animal.enqueue(cat)
+    actual = animal.dequeue('cat')
+    assert actual.name == 'Tom'
+
+# test removing from an empty queue raises exception
+def test_empty_queue():
+    animal = AnimalShelter()
+    with pytest.raises(Exception):
+        animal.dequeue()
+
+# test if the preferred animal is not a cat or a dog returns null
+def test_wrong_name_returns_null():
+    animal = AnimalShelter()
+
+    actual=animal.dequeue('not cat or dog')
+    assert actual == 'null'
 
