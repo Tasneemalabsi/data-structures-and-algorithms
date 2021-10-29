@@ -35,7 +35,7 @@ zip
 
                        big O of n for space // O(1) -> constant
 
--  for includes method:
+-  for to_string method:
 
                         big O of n for time // O(n) -> linear
 
