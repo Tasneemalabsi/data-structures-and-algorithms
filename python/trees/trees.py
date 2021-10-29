@@ -3,6 +3,13 @@ This Module defines a Node and a Binary Tree
 """
 
 class Node:
+  """
+    class for the tree node
+    attributes:
+    data: the value in the node
+    left: left to the root node
+    right: right to the root node
+  """
   def __init__ (self,data,left=None,right=None):
     self.data = data
     self.left = left
@@ -24,6 +31,11 @@ class Queue:
     return self.data.pop(0)
 
 class BinaryTree:
+  """
+    class for the implementation of the binary tree
+    attributes:
+    root: the root of the binary tree
+  """
 
   def _init_(self):
     self.root = None
@@ -114,10 +126,22 @@ class BinaryTree:
     return list_of_items
 
 class BinarySearchTree(BinaryTree):
+    """
+    sub-class from the binary tree class
+    methods:
+    add: adds a node to the tree
+    contains: check if the tree contains a certain value
+    """
     def __init__(self):
         super()._init_()
 
     def add(self, data):
+        """
+        adds a node to the tree
+        Arguments:
+        data: the data in the added node
+        returns: none
+        """
         node=Node(data)
         if not self.root:
             self.root=node
@@ -138,8 +162,14 @@ class BinarySearchTree(BinaryTree):
                     else:
                         current=current.right
                         break
-                    
+
     def contains(self, value):
+       """
+       check if the tree contains a certain value
+       Arguments:
+       value: the value that is going to be checked
+       returns: boolean
+       """
        if not self.root:
            raise Exception("no values to be found in the tree")
 
@@ -156,11 +186,11 @@ class BinarySearchTree(BinaryTree):
 
 
 
-if __name__ == "__main__":
-    tree = BinarySearchTree()
-    tree.add(3)
-    tree.add(2)
-    tree.add(5)
-    print(tree.root.data)
-    print(tree.root.left.data)
-    print(tree.root.right.data)
+# if __name__ == "__main__":
+#     tree = BinarySearchTree()
+#     tree.add(3)
+#     tree.add(2)
+#     tree.add(5)
+#     print(tree.root.data)
+#     print(tree.root.left.data)
+#     print(tree.root.right.data)
