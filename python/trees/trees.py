@@ -115,23 +115,54 @@ class BinaryTree:
 
 class BinarySearchTree(BinaryTree):
     def __init__(self):
-        self.root=None
+        super()._init_()
 
-    def add(self, value):
-        node=Node(value)
+    def add(self, data):
+        node=Node(data)
         if not self.root:
             self.root=node
+
         else:
-            if self.root.data > value:
-                if not self.left:
-                    self.left=node
-                self.left=BinarySearchTree.add(value)
+            current = self.root
+            while current:
+                if self.root.data > data:
+                    if not current.left:
+                        current.left=node
+                    else:
+                        current = current.left
+                        break
 
-            if self.root.data < value:
-                if not self.right:
-                    self.right=node
-                self.right=self.add(value)
+                elif self.root.data < data:
+                    if not current.right:
+                        current.right = node
+                    else:
+                        current=current.right
+                        break
+
+    def contains(self,value):
+    
+        if self.root.data == value:
+          return True
+        elif self.root.data < value:
+          if self.root.right == None:
+               return False
+          else:
+               return BinarySearchTree.contains(self.root.right,value)
+        #root.right.value == value #I am using == to return True or
+                                     #False
+        else:
+          if self.root.left == None:
+              return False
+          else:
+              return BinarySearchTree.contains(self.root.left,value)
 
 
 
-
+if __name__ == "__main__":
+    tree = BinarySearchTree()
+    tree.add(3)
+    tree.add(2)
+    tree.add(5)
+    print(tree.root.data)
+    # print(tree.root.left.data)
+    # print(tree.root.right.data)
