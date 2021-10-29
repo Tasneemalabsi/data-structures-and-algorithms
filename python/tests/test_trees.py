@@ -1,4 +1,5 @@
 from trees.trees import Node, BinaryTree, BinarySearchTree
+import pytest
 
 # Can successfully instantiate an empty tree
 def test_instantiate_empty_tree():
@@ -173,9 +174,19 @@ def test_bfs():
 def test_contains():
     tree = BinarySearchTree()
     tree.add(2)
-
+    tree.add(4)
+    tree.add(1)
     assert tree.contains(2) == True
-    assert tree.contains(4) == False
+    assert tree.contains(4) == True
+    assert tree.contains(1) == True
+    assert tree.contains(0) == False
+
+def test_contains_empty_tree_raises_exception():
+    tree = BinarySearchTree()
+    with pytest.raises(Exception):
+        tree.contains(2)
+
+
 
 
 

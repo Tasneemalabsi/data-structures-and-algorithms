@@ -138,23 +138,21 @@ class BinarySearchTree(BinaryTree):
                     else:
                         current=current.right
                         break
+                    
+    def contains(self, value):
+       if not self.root:
+           raise Exception("no values to be found in the tree")
 
-    def contains(self,value):
-    
-        if self.root.data == value:
-          return True
-        elif self.root.data < value:
-          if self.root.right == None:
-               return False
-          else:
-               return BinarySearchTree.contains(self.root.right,value)
-        #root.right.value == value #I am using == to return True or
-                                     #False
-        else:
-          if self.root.left == None:
-              return False
-          else:
-              return BinarySearchTree.contains(self.root.left,value)
+       else:
+            current = self.root
+            while current:
+                if current.data == value:
+                    return True
+                elif current.data > value:
+                     current = current.left
+                elif current.data < value:
+                    current = current.right
+            return False
 
 
 
@@ -164,5 +162,5 @@ if __name__ == "__main__":
     tree.add(2)
     tree.add(5)
     print(tree.root.data)
-    # print(tree.root.left.data)
-    # print(tree.root.right.data)
+    print(tree.root.left.data)
+    print(tree.root.right.data)
