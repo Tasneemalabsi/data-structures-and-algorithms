@@ -121,6 +121,8 @@ def test_dequeue_in_pseudoqueue():
     queue.enqueue(1)
     queue.enqueue(2)
     queue.enqueue(3)
+    queue.peek()
+    queue.enqueue(4)
     assert queue.dequeue() == 1
 
 # test removing values from an empty queue raises an exception

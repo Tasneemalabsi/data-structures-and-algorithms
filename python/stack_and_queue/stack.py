@@ -125,8 +125,11 @@ class PseudoQueue:
         # this method is used for testing the enqueue method, it's not required in the challenge
         while self.stack_front.top:
             self.stack_rear.push(self.stack_front.pop())
+        peek_value = self.stack_rear.top.value
+        while self.stack_rear.top:
+            self.stack_front.push(self.stack_rear.pop())
 
-        return self.stack_rear.top.value
+        return peek_value
 
 
 

@@ -125,6 +125,18 @@ class BinaryTree:
     walk(self.root)
     return list_of_items
 
+  def get_max(self):
+    arr = self.bfs()
+    max=0
+    for i in arr:
+        if i>max:
+            max = i
+
+    return max
+
+
+
+
 class BinarySearchTree(BinaryTree):
     """
     sub-class from the binary tree class
@@ -184,13 +196,43 @@ class BinarySearchTree(BinaryTree):
                     current = current.right
             return False
 
+# def fizz_buzz_tree(ktree: BinaryTree):
+#     arr=ktree.bfs()
+#     newArr = []
+#     for i in arr:
+#         if i % 3 == 0 and i % 5 == 0:
+#             newArr.append("FizzBuzz")
+#         if i % 3 == 0 and i % 5 :
+#             newArr.append("Fizz")
+#         elif i % 5 == 0 and i % 3:
+#             newArr.append("Buzz")
+#         elif i % 5 and i % 3:
+#             newArr.append(str(i))
+
+#     new_tree = BinarySearchTree()
+#     for i in newArr:
+#         new_tree.add(i)
+#     print(new_tree.root.data)
+#     print(new_tree.root.left.data)
+#     print(new_tree.root.right.data)
+#     return new_tree
 
 
-# if __name__ == "__main__":
-#     tree = BinarySearchTree()
-#     tree.add(3)
-#     tree.add(2)
-#     tree.add(5)
-#     print(tree.root.data)
-#     print(tree.root.left.data)
-#     print(tree.root.right.data)
+
+
+if __name__ == "__main__":
+    tree = BinaryTree()
+    a_node = Node(7)
+    b_node = Node(5)
+    c_node = Node(9)
+    d_node = Node(13)
+    e_node = Node(13)
+    f_node = Node(15)
+    tree.root=a_node
+    a_node.left = b_node
+    a_node.right = c_node
+    b_node.left = d_node
+    d_node.left = e_node
+    c_node.right = f_node
+    # print(tree.get_max())
+    print(fizz_buzz_tree(tree))
