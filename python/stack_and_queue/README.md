@@ -13,9 +13,6 @@ The animal shelter challenge has an animal shelter class which properties are a 
 ## Whiteboard Process
 Pseudo-queue
 ![pseudo-queue](stack-queue-pseudo.png)
- Animal-Shelter
-
- ![animal-shelter](stack-queue-animal-shelter.png)
 
 
 ## Approach & Efficiency
@@ -54,16 +51,6 @@ Pseudo-queue
 
                        big O of n for space // O(n) -> linear
 
-- for enqueue in Animal-shelter:
-
-                       big O of n for time // O(1) -> constant
-
-                       big O of n for space // O(1) -> constant
-- for dequeue in Animal-shelter:
-
-                       big O of n for time // O(1) -> constant
-
-                       big O of n for space // O(1) -> constant
 
 
 
@@ -76,5 +63,3 @@ Pseudo-queue
 - enqueue method in psuedo-queue challenge : adds a value to the queue using the push method in the stack instance
 - dequeue method in pseudo-queue challenge: removes the first value in the queue using push and pop methods from the stack instances
 - peek method in the psudo-queue challenge: used to test the enqueue method, linear time complexity, constant space complexity
-- enqueue method in Animal-shelter challenge : adds a dog or cat object to the queue, with two conditions that determine if the added animal is an instance of the dog or the cat class
-- dequeue method in Animal-shelter challenge: removes the first dog or cat in the queue depending on the preferred animal (if it was a dog or a cat), and returns null if the preferred animal wasn't a dog or a cat.

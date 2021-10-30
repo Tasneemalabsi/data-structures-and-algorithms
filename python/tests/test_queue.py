@@ -1,6 +1,6 @@
 from stack_and_queue.node import Node
 from stack_and_queue.queue import Queue
-from stack_and_queue.stack_queue_animal_shelter import AnimalShelter, Dog, Cat
+from stack_and_queue.stack_queue_animal_shelter.stack_queue_animal_shelter import AnimalShelter, Dog, Cat
 
 import pytest
 
