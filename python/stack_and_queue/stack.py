@@ -124,7 +124,10 @@ class PseudoQueue:
         while self.stack_front.top:
             self.stack_rear.push(self.stack_front.pop())
 
-        return self.stack_rear.top.value
+        peek_value = self.stack_rear.top.value
+        while self.stack_rear.top:
+            self.stack_front.push(self.stack_rear.pop())
 
+        return peek_value
 
 
