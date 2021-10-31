@@ -5,6 +5,13 @@ Trees are non-linear data structures, a tree whose elements have at most 2 child
 ## Challenge
 Create a Node class that has properties for the value stored in the node, the left child node, and the right child node. And create a Binary Tree class
 
+the tree max challenge, write a method in the binary tree class that returns the maximum value in the tree
+
+## Whiteboard Process
+tree max
+
+![tree-max](tree-max.png)
+
 ## Approach & Efficiency
 - create a class for the Node
 - Create a class for the binary tree which has these methods:
@@ -30,6 +37,11 @@ Create a Node class that has properties for the value stored in the node, the le
                         big O of n for time // O(nlogn) -> logarithmic
 
                         big O of n for space // O(n) -> linear
+    - get_max method: returns the maximum value in the tree
+
+                        big O of n for time // O(n) -> linear
+
+                        big O of n for space // O(n) -> linear
 
 - Create a class for the binary search tree which has these methods:
     - add method: adds nodes to the tree, either to the root if the tree was empty at first, or to the left if the added node's value was smaller than the root node's value, or to the right if the node's value was larger than the root node's value .
@@ -51,3 +63,4 @@ Create a Node class that has properties for the value stored in the node, the le
 - post_order() method : returns the items of the tree as a list in the post-order
 - add() method: adds nodes to the tree, either to the root if the tree was empty at first, or to the left if the added node's value was smaller than the root node's value, or to the right if the node's value was larger than the root node's value .
 - contains() method: returns true if the given value exists in the tree, otherwise returns false
+- get_max() method: returns the maximum value in a binary tree, it has no arguments, it's called by an instance of a binaryTree class .

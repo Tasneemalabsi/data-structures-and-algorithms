@@ -174,7 +174,7 @@ class LinkedList:
         this method finds the node located at the kth value of a linked list, this k value starts counting from the tail of the list
 
         arguments:
-          index : integer positive number which is the kth value from the end
+        index : integer positive number which is the kth value from the end
 
         returns: value, the data in the node located at the input kth value
 
@@ -213,7 +213,7 @@ def zipLists(list1:LinkedList, list2:LinkedList):
         return list1.to_string()
 
     while current.next and list2.head:
-
+        
         node1 = list2.head
         list2.head = list2.head.next
         node1.next = current.next
@@ -245,6 +245,7 @@ def reversed_list(list: LinkedList):
         new_list.insert(current.data)
         current = current.next
     return new_list.to_string()
+
 
 
 if __name__ == "__main__":

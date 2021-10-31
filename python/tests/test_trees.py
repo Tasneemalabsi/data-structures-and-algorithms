@@ -186,6 +186,36 @@ def test_contains_empty_tree_raises_exception():
     with pytest.raises(Exception):
         tree.contains(2)
 
+#------------------------------tests for tree max challenge-----------------------------
+
+#test tree max/ happy path
+def test_tree_max():
+    # Arrange
+    expected = 17
+    tree = BinaryTree()
+    a_node = Node(7)
+    b_node = Node(5)
+    c_node = Node(9)
+    d_node = Node(17)
+    e_node = Node(13)
+    f_node = Node(15)
+    tree.root=a_node
+    a_node.left = b_node
+    a_node.right = c_node
+    b_node.left = d_node
+    d_node.left = e_node
+    c_node.right = f_node
+    #Act
+    actual = tree.get_max()
+    #Assert
+    assert actual == expected
+
+# test tree max/ edge case
+def test_empty_tree_max_raises_exception():
+    tree = BinaryTree()
+    with pytest.raises(Exception):
+        tree.get_max()
+
 
 
 
