@@ -131,7 +131,7 @@ class BinaryTree:
     Arguments: None
     returns: single value (number)
     """
-    max=0
+    max=self.root.data
     if not self.root:
         raise Exception("the tree is empty")
     else:

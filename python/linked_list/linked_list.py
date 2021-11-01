@@ -213,7 +213,7 @@ def zipLists(list1:LinkedList, list2:LinkedList):
         return list1.to_string()
 
     while current.next and list2.head:
-        
+
         node1 = list2.head
         list2.head = list2.head.next
         node1.next = current.next
@@ -245,6 +245,8 @@ def reversed_list(list: LinkedList):
         new_list.insert(current.data)
         current = current.next
     return new_list.to_string()
+
+
 
 
 
