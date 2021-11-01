@@ -37,4 +37,4 @@ here is the table of contents of the code-challenges of 401:
 - [stack-queue-brackets](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/stack-queue-brackets/python/stack_and_queue/stack_queue_brackets/README.md)
 - [trees](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/trees/python/trees/README.md)
 - [tree-max](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/tree-max/python/trees/README.md)
-- [tree-breadth-first](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/tree-breadth-first/README.md)
+- [tree-breadth-first](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/tree-breadth-first/python/trees/README.md)
