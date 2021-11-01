@@ -1,4 +1,4 @@
-from trees.trees import Node, BinaryTree, BinarySearchTree
+from trees.trees import Node, BinaryTree, BinarySearchTree, breadth_first
 import pytest
 
 # Can successfully instantiate an empty tree
@@ -215,6 +215,42 @@ def test_empty_tree_max_raises_exception():
     tree = BinaryTree()
     with pytest.raises(Exception):
         tree.get_max()
+
+#--------------------------tests for breadth first/code challenge 17-------------------
+
+# test tree breadth first/ happy path
+def test_breadth_first_function():
+  # Arrange
+  # Create tree instance
+  tree = BinaryTree()
+
+  # Create Nodes for A,B,C,D
+  a_node = Node('1')
+  b_node = Node('2')
+  c_node = Node('3')
+  d_node = Node('4')
+  a_node.left = b_node
+  a_node.right = c_node
+  b_node.left = d_node
+
+  # Add Root node to tree
+  tree.root=a_node
+
+  # set expected list
+  expected = ["1", "2", "3", "4"]
+  # set actual to return value of bfs call
+  actual = breadth_first(tree)
+  # assert actual is same as expected
+  assert actual == expected
+
+  
+
+# test tree breadth first/ edge case
+def test_empty_tree_breadth_first_raises_exception():
+    tree = BinaryTree()
+    with pytest.raises(Exception):
+        breadth_first(tree)
+
 
 
 

@@ -7,10 +7,16 @@ Create a Node class that has properties for the value stored in the node, the le
 
 the tree max challenge, write a method in the binary tree class that returns the maximum value in the tree
 
+the breadth first challenge: Write a function called breadth first that takes a binary tree as an argument and returns a list of all values in the tree, in the order they were encountered
+
 ## Whiteboard Process
 tree max
 
 ![tree-max](tree-max.png)
+
+breadth first challenge:
+
+![bfs](tree-breadth-first.png)
 
 ## Approach & Efficiency
 - create a class for the Node
@@ -55,6 +61,12 @@ tree max
                         big O of n for time // O(n) -> linear
 
                         big O of n for space // O(1) -> constant
+- breadth_first function: returns a list with the items of a tree
+
+                        big O of n for time // O(n) -> linear
+
+                        big O of n for space // O(n) -> linear
+
 
 ## API
 - bfs() method: returns the items of the tree as a list in the breadth first order
@@ -64,3 +76,4 @@ tree max
 - add() method: adds nodes to the tree, either to the root if the tree was empty at first, or to the left if the added node's value was smaller than the root node's value, or to the right if the node's value was larger than the root node's value .
 - contains() method: returns true if the given value exists in the tree, otherwise returns false
 - get_max() method: returns the maximum value in a binary tree, it has no arguments, it's called by an instance of a binaryTree class .
+- breadth_first function: returns a list with the items of a tree after dequeuing them from a queue of the tree nodes that were added to it before

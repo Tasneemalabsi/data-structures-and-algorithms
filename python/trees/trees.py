@@ -131,8 +131,8 @@ class BinaryTree:
     Arguments: None
     returns: single value (number)
     """
-    max=self.root.data
-    if not self.root:
+    max=0
+    if not self.root.data:
         raise Exception("the tree is empty")
     else:
         arr = self.bfs()
@@ -141,6 +141,34 @@ class BinaryTree:
                 max = i
 
     return max
+
+
+def breadth_first(tree:BinaryTree):
+    """
+    A binary tree function which returns a list of items that it contains
+
+    input: binary tree
+    output: list of items
+    """
+    if not tree.root:
+        raise Exception("tree is empty")
+    else:
+        breadth = Queue()
+        breadth.enqueue(tree.root)
+
+        list_of_items = []
+
+        while breadth.peek():
+            front = breadth.dequeue()
+            list_of_items += [front.data]
+
+            if front.left:
+                breadth.enqueue(front.left)
+
+            if front.right:
+                breadth.enqueue(front.right)
+
+        return list_of_items
 
 
 
@@ -209,12 +237,12 @@ class BinarySearchTree(BinaryTree):
 
 if __name__ == "__main__":
     tree = BinaryTree()
-    a_node = Node(7)
+    a_node = Node(9)
     b_node = Node(5)
-    c_node = Node(9)
-    d_node = Node(17)
+    c_node = Node(7)
+    d_node = Node(7)
     e_node = Node(13)
-    f_node = Node(15)
+    f_node = Node(7)
     tree.root=a_node
     a_node.left = b_node
     a_node.right = c_node
@@ -222,4 +250,5 @@ if __name__ == "__main__":
     d_node.left = e_node
     c_node.right = f_node
     print(tree.get_max())
+    print(breadth_first(tree))
 
