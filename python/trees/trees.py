@@ -235,6 +235,40 @@ class BinarySearchTree(BinaryTree):
                     current = current.right
             return False
 
+def tree_fizz_buzz(ktree: BinaryTree):
+    """
+    this function takes a binary tree as an input and replaces the node value with 'fizz' if the node's value is divisible by 3, 'buzz' if it's divisible by 5, and fizzbuzz if it's divisible by both, if none it replaces it with the number as a string
+    Arguments:
+    ktree: binary tree
+    returns: binary tree
+    """
+    if not ktree.root:
+      raise Exception("tree is empty")
+    else:
+      tree = BinaryTree()
+      def walk(root: Node):
+        if root:
+          if root.data % 3 == 0 and root.data % 5 == 0:
+              node = Node("FizzBuzz")
+          if root.data % 3 == 0 and root.data % 5 :
+              node = Node("Fizz")
+          elif root.data % 5 == 0 and root.data % 3:
+              node = Node("Buzz")
+          elif root.data % 5 and root.data % 3:
+              node = Node(str(root.data))
+          if root.left:
+            node.left=walk(root.left)
+          if root.right:
+            node.right=walk(root.right)
+        return node
+
+      tree.root=walk(ktree.root)
+      print(tree.bfs())
+      return tree
+
+
+
+
 
 
 
@@ -244,7 +278,7 @@ if __name__ == "__main__":
     b_node = Node(-5)
     c_node = Node(-7)
     d_node = Node(-7)
-    e_node = Node(-13)
+    e_node = Node(-15)
     f_node = Node(-7)
     tree.root=a_node
     a_node.left = b_node
@@ -254,4 +288,5 @@ if __name__ == "__main__":
     c_node.right = f_node
     print(tree.get_max())
     print(breadth_first(tree))
+    print(tree_fizz_buzz(tree))
 
