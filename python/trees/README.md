@@ -9,6 +9,10 @@ the tree max challenge, write a method in the binary tree class that returns the
 
 the breadth first challenge: Write a function called breadth first that takes a binary tree as an argument and returns a list of all values in the tree, in the order they were encountered
 
+the tree fizz buzz challenge: Conduct “FizzBuzz” on a k-ary tree while traversing through it to create a new tree. Set the values of each of the new nodes depending on the corresponding node value in the source tree.
+
+
+
 ## Whiteboard Process
 tree max
 
@@ -17,6 +21,10 @@ tree max
 breadth first challenge:
 
 ![bfs](tree-breadth-first.png)
+
+tree fizz buzz challenge:
+
+![tree-fizz-buzz](tree-fizz-buzz.png)
 
 ## Approach & Efficiency
 - create a class for the Node
@@ -66,6 +74,11 @@ breadth first challenge:
                         big O of n for time // O(n) -> linear
 
                         big O of n for space // O(n) -> linear
+- tree_fizz_buzz function: returns a new binary tree with the modified value according to the fizz buzz pattern
+                        big O of n for time // O(nlogn) -> logarithmic
+
+                        big O of n for space // O(n) -> linear
+
 
 
 ## API
@@ -77,3 +90,4 @@ breadth first challenge:
 - contains() method: returns true if the given value exists in the tree, otherwise returns false
 - get_max() method: returns the maximum value in a binary tree, it has no arguments, it's called by an instance of a binaryTree class .
 - breadth_first function: returns a list with the items of a tree after dequeuing them from a queue of the tree nodes that were added to it before
+- tree_fizz_buzz function: takes a binary tree as an input and replaces the node value with 'fizz' if the node's value is divisible by 3, 'buzz' if it's divisible by 5, and fizzbuzz if it's divisible by both, if none it replaces it with the number as a string, it returns a new binary tree with the values modified according to the mentioned fizz buzz pattern. 

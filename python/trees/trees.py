@@ -235,6 +235,7 @@ class BinarySearchTree(BinaryTree):
                     current = current.right
             return False
 
+# this function is for tree fizzbuzz challenge
 def tree_fizz_buzz(ktree: BinaryTree):
     """
     this function takes a binary tree as an input and replaces the node value with 'fizz' if the node's value is divisible by 3, 'buzz' if it's divisible by 5, and fizzbuzz if it's divisible by both, if none it replaces it with the number as a string
@@ -263,7 +264,6 @@ def tree_fizz_buzz(ktree: BinaryTree):
         return node
 
       tree.root=walk(ktree.root)
-      print(tree.bfs())
       return tree
 
 

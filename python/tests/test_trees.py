@@ -251,9 +251,8 @@ def test_empty_tree_breadth_first_raises_exception():
     with pytest.raises(Exception):
         breadth_first(tree)
 
-
+#------------------------------tests for challenge18:tree fuzz buzz-----------------------------
 # test tree fizz buzz/ happy path
-
 def test_tree_fizz_buzz():
     # Arrange
     expected = ['7','Buzz','Fizz','17','FizzBuzz','13']
