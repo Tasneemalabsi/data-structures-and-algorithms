@@ -144,6 +144,20 @@ class BinaryTree:
 
         return max
 
+  def count_files(self):
+
+        self.counter = 0
+        def walk(root: Node):
+            if root:
+                if root.data != "folder":
+                    self.counter += 1
+                if root.left:
+                   walk(root.left)
+                if root.right:
+                    walk(root.right)
+            return self.counter
+        return walk(self.root)
+
 
 # this function is written for the challenge17: breadth first challenge
 def breadth_first(tree:BinaryTree):
@@ -236,7 +250,7 @@ class BinarySearchTree(BinaryTree):
             return False
 
 # this function is for tree fizzbuzz challenge
-def tree_fizz_buzz(ktree: BinaryTree):
+def fizz_buzz_tree(ktree: BinaryTree):
     """
     this function takes a binary tree as an input and replaces the node value with 'fizz' if the node's value is divisible by 3, 'buzz' if it's divisible by 5, and fizzbuzz if it's divisible by both, if none it replaces it with the number as a string
     Arguments:
@@ -266,6 +280,15 @@ def tree_fizz_buzz(ktree: BinaryTree):
       tree.root=walk(ktree.root)
       return tree
 
+def compare_trees(tree1:BinaryTree, tree2:BinaryTree):
+
+    return tree1.count_files() == tree2.count_files()
+
+
+
+
+
+
 
 
 
@@ -273,20 +296,33 @@ def tree_fizz_buzz(ktree: BinaryTree):
 
 
 if __name__ == "__main__":
-    tree = BinaryTree()
-    a_node = Node(-9)
-    b_node = Node(-5)
-    c_node = Node(-7)
-    d_node = Node(-7)
-    e_node = Node(-15)
-    f_node = Node(-7)
-    tree.root=a_node
+    tree1 = BinaryTree()
+    a_node = Node("folder")
+    b_node = Node("folder")
+    c_node = Node("folder")
+    d_node = Node("folder")
+    e_node = Node("file.cs")
+    f_node = Node("file.py")
+    tree1.root=a_node
     a_node.left = b_node
     a_node.right = c_node
     b_node.left = d_node
     d_node.left = e_node
     c_node.right = f_node
-    print(tree.get_max())
-    print(breadth_first(tree))
-    print(tree_fizz_buzz(tree))
+
+    tree2 = BinaryTree()
+    a_node = Node("folder")
+    b_node = Node("folder")
+    c_node = Node("folder")
+    d_node = Node("folder")
+    e_node = Node("folder")
+    f_node = Node("file.py")
+    tree2.root=a_node
+    a_node.left = b_node
+    a_node.right = c_node
+    b_node.left = d_node
+    d_node.left = e_node
+    c_node.right = f_node
+    print(compare_trees(tree1, tree2))
+
 

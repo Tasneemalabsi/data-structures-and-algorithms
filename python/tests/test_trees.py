@@ -1,4 +1,5 @@
-from trees.trees import Node, BinaryTree, BinarySearchTree, breadth_first, tree_fizz_buzz
+from trees.trees import Node, BinaryTree, BinarySearchTree, breadth_first, fizz_buzz_tree
+from trees.tree_fizz_buzz.tree_fizz_buzz import Node_kAry, kary_tree, tree_fizz_buzz
 import pytest
 
 # Can successfully instantiate an empty tree
@@ -252,36 +253,25 @@ def test_empty_tree_breadth_first_raises_exception():
         breadth_first(tree)
 
 #------------------------------tests for challenge18:tree fuzz buzz-----------------------------
+
+
 # test tree fizz buzz/ happy path
-def test_tree_fizz_buzz():
-    # Arrange
-    expected = ['7','Buzz','Fizz','17','FizzBuzz','13']
-    [7,5,9,17,15,13]
-    tree = BinaryTree()
-    a_node = Node(7)
-    b_node = Node(5)
-    c_node = Node(9)
-    d_node = Node(17)
-    e_node = Node(13)
-    f_node = Node(15)
-    tree.root=a_node
-    a_node.left = b_node
-    a_node.right = c_node
-    b_node.left = d_node
-    d_node.left = e_node
-    c_node.right = f_node
-    #Act
-    actual = tree_fizz_buzz(tree).bfs()
-    #Assert
+def test_fizz_k_ary_tree():
+    expected = ['1', 'FizzBuzz', 'Fizz', '4', 'Buzz']
+    node=Node_kAry(1)
+    node.add_child(Node_kAry(15))
+    node.add_child(Node_kAry(3))
+    node.add_child(Node_kAry(4))
+    node.add_child(Node_kAry(5))
+    tree = kary_tree()
+    tree.root = node
+    actual = tree_fizz_buzz(tree)
     assert actual == expected
 
 # test tree breadth first/ edge case
-def test_empty_tree_fizz_buzz_raises_exception():
-    tree = BinaryTree()
+def test_empty_k_ary_tree_fizzbuzz_raises_exception():
+    tree = kary_tree()
     with pytest.raises(Exception):
         tree_fizz_buzz(tree)
-
-
-
 
 
