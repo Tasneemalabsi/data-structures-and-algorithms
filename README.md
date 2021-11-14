@@ -39,4 +39,4 @@ here is the table of contents of the code-challenges of 401:
 - [tree-max](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/tree-max/python/trees/README.md)
 - [tree-breadth-first](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/tree-breadth-first/python/trees/README.md)
 - [tree-fizz-buzz](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/tree-fizz-buzz/python/trees/README.md)
-- [insertion-sort]()
+- [insertion-sort](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/insertion-sort/python/insertion_sort/README.md)
