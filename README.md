@@ -42,3 +42,4 @@ here is the table of contents of the code-challenges of 401:
 - [insertion-sort](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/insertion-sort/python/insertion_sort/README.md)
 - [merge-sort](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/merge-sort/python/merge_sort/README.md)
 - [quick-sort](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/quick-sort/python/quick_sort/README.md)
+- [hashtable](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/hashtable/python/hashtables/README.md)
