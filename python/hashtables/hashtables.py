@@ -1,3 +1,5 @@
+import re
+
 class Node:
     def __init__(self, value=None, next_=None):
         """
@@ -85,15 +87,40 @@ class HashTable:
                 current = current.next
         return False
 
+def repeated_word(string):
+    """
+    takes a string as an input then returns the first repeated word in this string
+
+    Args:
+        string
+
+    Returns:
+        string
+    """
+    hash = HashTable()
+    lower_case_string = string.lower()
+    arr = lower_case_string.split(" ")
+    counter = 1
+    result = ''
+    for word in arr:
+        new_word = re.sub(r'[^\w\s]', '', word)
+        if hash.contains(new_word):
+            counter += 1
+            hash.add(new_word, counter)
+        else:
+            hash.add(new_word, counter)
+        res = hash.get(new_word)
+        if res > 1:
+            result =  new_word
+            break
+    return result
+
+
+
+
 
 if __name__ == "__main__":
-    hash = HashTable()
-    hash.add("number","1")
-    hash.add("letter","a")
-    hash.add("whatever","d")
-    print(hash.contains("letter"))
-    print(hash._HashTable__hash('whatever'))
-
+    print(repeated_word("It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York..."))
 
 
 
