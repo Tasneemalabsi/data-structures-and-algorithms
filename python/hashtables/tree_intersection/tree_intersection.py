@@ -1,6 +1,30 @@
-import re
-
 class Node:
+  """
+    class for the tree node
+    attributes:
+    data: the value in the node
+    left: left to the root node
+    right: right to the root node
+  """
+  def __init__ (self,data,left=None,right=None):
+    self.data = data
+    self.left = left
+    self.right = right
+
+
+
+class BinaryTree:
+  """
+    class for the implementation of the binary tree
+    attributes:
+    root: the root of the binary tree
+  """
+
+  def _init_(self):
+    self.root = None
+
+
+class ListNode:
     def __init__(self, value=None, next_=None):
         """
       Initalization the Node
@@ -20,7 +44,7 @@ class LinkedList:
         """
         Take a value and store it in a Node, then insert it to the beginning of the linked list.
         """
-        self.head = Node(value, self.head)
+        self.head = ListNode(value, self.head)
 
 
 class HashTable:
@@ -87,52 +111,67 @@ class HashTable:
                 current = current.next
         return False
 
-def repeated_word(string):
-    """
-    takes a string as an input then returns the first repeated word in this string
 
-    Args:
-        string
-
-    Returns:
-        string
-    """
+def tree_intersection(tree1:BinaryTree, tree2:BinaryTree):
+    if (not tree1.root) or (not tree2.root):
+        raise Exception('input tree is empty')
+    arr=[]
     hash = HashTable()
-    lower_case_string = string.lower()
-    arr = lower_case_string.split(" ")
-    counter = 1
-    result = ''
-    for word in arr:
-        new_word = re.sub(r'[^\w\s]', '', word)
-        if hash.contains(new_word):
-            counter += 1
-            hash.add(new_word, counter)
-        else:
-            hash.add(new_word, counter)
-        res = hash.get(new_word)
-        if res > 1:
-            result =  new_word
-            break
-    return result
+    def walk(node:Node):
+        try:
+            if node:
+                hash.add(str(node.data),None)
+            if node.left:
+                walk(node.left)
+            if node.right:
+                walk(node.right)
+        except:
+            raise Exception('tree is empty')
 
+    walk(tree1.root)
 
-
-
-
-
-
-
+    def walk2(node:Node):
+        try:
+            if node:
+                if hash.contains(str(node.data)):
+                    arr.append(node.data)
+            if node.left:
+                walk2(node.left)
+            if node.right:
+                walk2(node.right)
+            return arr
+        except:
+            raise Exception('tree is empty')
+    return walk2(tree2.root)
 
 
 
 if __name__ == "__main__":
-    print(repeated_word("It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York..."))
+    tree1 = BinaryTree()
+    a_node = Node("foldr")
+    b_node = Node("folde")
+    c_node = Node(1)
+    d_node = Node("folde")
+    e_node = Node("file.cs")
+    f_node = Node("file.p")
+    tree1.root=a_node
+    a_node.left = b_node
+    a_node.right = c_node
+    b_node.left = d_node
+    d_node.left = e_node
+    c_node.right = f_node
 
-
-
-
-
-
-
-
-
+    tree2 = BinaryTree()
+    a_node = Node("folder")
+    b_node = Node('any')
+    c_node = Node(11)
+    d_node = Node('three')
+    e_node = Node("any")
+    f_node = Node("file.py")
+    tree2.root=a_node
+    a_node.left = b_node
+    a_node.right = c_node
+    b_node.left = d_node
+    d_node.left = e_node
+    c_node.right = f_node
+    print(tree_intersection(tree1, tree2))
