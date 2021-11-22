@@ -44,3 +44,4 @@ here is the table of contents of the code-challenges of 401:
 - [quick-sort](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/quick-sort/python/quick_sort/README.md)
 - [hashtable](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/hashtable/python/hashtables/README.md)
 - [hashtable-repeated-word](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/hashmap-repeated-word/python/hashtables/README.md)
+- [tree-intersection](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/tree-intersection/python/hashtables/tree_intersection/README.md)

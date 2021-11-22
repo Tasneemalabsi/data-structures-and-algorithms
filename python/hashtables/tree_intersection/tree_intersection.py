@@ -113,25 +113,34 @@ class HashTable:
 
 
 def tree_intersection(tree1:BinaryTree, tree2:BinaryTree):
+    """
+    this function takes two binary trees and use hash table to return a list of the common values between them
+
+    Args:
+        tree1 (BinaryTree)
+        tree2 (BinaryTree)
+
+    Raises:
+        Exception
+
+    Returns:
+        List
+    """
     if (not tree1.root) or (not tree2.root):
         raise Exception('input tree is empty')
     arr=[]
     hash = HashTable()
     def walk(node:Node):
-        try:
             if node:
                 hash.add(str(node.data),None)
             if node.left:
                 walk(node.left)
             if node.right:
                 walk(node.right)
-        except:
-            raise Exception('tree is empty')
-
     walk(tree1.root)
 
     def walk2(node:Node):
-        try:
+
             if node:
                 if hash.contains(str(node.data)):
                     arr.append(node.data)
@@ -140,8 +149,6 @@ def tree_intersection(tree1:BinaryTree, tree2:BinaryTree):
             if node.right:
                 walk2(node.right)
             return arr
-        except:
-            raise Exception('tree is empty')
     return walk2(tree2.root)
 
 
