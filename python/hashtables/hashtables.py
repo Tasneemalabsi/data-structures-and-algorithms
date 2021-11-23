@@ -115,6 +115,10 @@ def repeated_word(string):
             break
     return result
 
+def left_join(hash1:HashTable, hash2:HashTable):
+    arr = []
+    
+
 
 
 
