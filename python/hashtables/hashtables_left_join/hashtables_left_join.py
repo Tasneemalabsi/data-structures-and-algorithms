@@ -1,5 +1,3 @@
-import re
-
 class Node:
     def __init__(self, value=None, next_=None):
         """
@@ -87,34 +85,6 @@ class HashTable:
                 current = current.next
         return False
 
-def repeated_word(string):
-    """
-    takes a string as an input then returns the first repeated word in this string
-
-    Args:
-        string
-
-    Returns:
-        string
-    """
-    hash = HashTable()
-    lower_case_string = string.lower()
-    arr = lower_case_string.split(" ")
-    counter = 1
-    result = ''
-    for word in arr:
-        new_word = re.sub(r'[^\w\s]', '', word)
-        if hash.contains(new_word):
-            counter += 1
-            hash.add(new_word, counter)
-        else:
-            hash.add(new_word, counter)
-        res = hash.get(new_word)
-        if res > 1:
-            result =  new_word
-            break
-    return result
-
 def left_join(hash1:HashTable, hash2:HashTable):
     arr = []
     for i in range(len(hash1._HashTable__buckets)):
@@ -138,23 +108,14 @@ def left_join(hash1:HashTable, hash2:HashTable):
 
 
 if __name__ == "__main__":
-    print(repeated_word("It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York..."))
     hash1 = HashTable()
-    # hash1.add('foo','ff')
-    # hash1.add('moo','mm')
-    # hash1.add('doo','dd')
-    # hash1.add('soo','ss')
+    hash1.add('foo','ff')
+    hash1.add('moo','mm')
+    hash1.add('doo','dd')
+    hash1.add('soo','ss')
     hash2 = HashTable()
     hash2.add('fo','ff')
     hash2.add('moo','m')
     hash2.add('doo','d')
     hash2.add('so','s')
     print(left_join(hash1,hash2))
-
-
-
-
-
-
-
-
