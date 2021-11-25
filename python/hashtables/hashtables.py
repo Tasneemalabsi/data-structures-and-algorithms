@@ -128,29 +128,43 @@ def left_join(hash1:HashTable, hash2:HashTable):
     return arr
 
 
+def unique_characters(string):
+    if not string:
+        raise Exception("string is empty")
+    hash = HashTable()
+    new_string = string.replace(" ", "")
+    for character in new_string.lower():
+        if hash.contains(character):
+                return False
+        hash.add(character,None)
 
+    return True
 
+def most_common(string):
+    hash = HashTable()
+    arr = []
+    new = string.lower()
+    arr2 = new.split(" ")
+    counter = 0
+    for character in arr2:
+       character = character.strip('.')
+       if not hash.contains(character):
+        hash.add(character,counter)
+       else:
+           hash.add(character,counter+1)
+       arr.append(hash.get(character))
+       if max(arr) == hash.get(character):
+           res = character
+           break
 
-
+    return res
 
 
 
 
 
 if __name__ == "__main__":
-    print(repeated_word("It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York..."))
-    hash1 = HashTable()
-    # hash1.add('foo','ff')
-    # hash1.add('moo','mm')
-    # hash1.add('doo','dd')
-    # hash1.add('soo','ss')
-    hash2 = HashTable()
-    hash2.add('fo','ff')
-    hash2.add('moo','m')
-    hash2.add('doo','d')
-    hash2.add('so','s')
-    print(left_join(hash1,hash2))
-
+    print(unique_characters("tasneem"))
 
 
 
