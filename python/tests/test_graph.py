@@ -1,92 +1,106 @@
 import pytest
+from graph.graph import  Edge, Graph, Vertex
 
-from graph import  Graph, Vertex
-
-def test_add_node():
+# Node can be successfully added to the graph
+def test_add_node_to_graph():
   graph = Graph()
-  expected = "test"
-  actual = graph.add_node('test').value
+  expected = "1"
+  actual = graph.add_node('1').value
   assert actual == expected
 
-def test_size_empty():
+# An edge can be successfully added to the graph
+def test_add_edge_to_graph():
 
     graph = Graph()
-
-    expected = 0
-
-    actual = graph.size()
-
-    assert actual == expected
-
-
-def test_size():
-
-    graph = Graph()
-
-    graph.add_node('spam')
-
-    expected = 1
-
-    actual = graph.size()
-
-    assert actual == expected
-
-
-def test_add_edge_interloper_start():
-
-    graph = Graph()
-
-    start = Vertex('start')
-
-    end = graph.add_node('end')
-
-    with pytest.raises(KeyError):
-        graph.add_edge(start, end)
-
-
-def test_add_edge_interloper_end():
-
-    graph = Graph()
-
-    end = Vertex('end')
-
-    start = graph.add_node('start')
-
-    with pytest.raises(KeyError):
-        graph.add_edge(start, end)
-def test_get_nodes():
-
-    graph = Graph()
-
-    banana = graph.add_node('banana')
-
-    apple = graph.add_node('apple')
-
-    loner = Vertex('loner')
-
+    node1=graph.add_node(1)
+    node2=graph.add_node(2)
+    graph.add_edge(node1,node2)
+    actual = graph.get_neighbors(node1)[0].vertex.value
     expected = 2
-
-    actual = len(graph.get_nodes())
-
     assert actual == expected
 
 
+# A collection of all nodes can be properly retrieved from the graph
+def test_get_nodes():
+    graph =Graph()
+    node1=graph.add_node(1)
+    node2=graph.add_node(2)
+    node3=graph.add_node(3)
+    node4=graph.add_node(4)
+    arr = []
+    for i in range(len(list(graph.get_nodes()))):
+        val=list(graph.get_nodes())[i].value
+        arr.append(val)
+    expected = [1,2,3,4]
+    actual = arr
+    assert actual == expected
+
+# All appropriate neighbors can be retrieved from the graph
 def test_get_neighbors():
+    graph=Graph()
+    node1=graph.add_node(1)
+    node2=graph.add_node(2)
+    node3=graph.add_node(3)
+    node4=graph.add_node(4)
+    graph.add_edge(node1,node2)
+    graph.add_edge(node1,node3)
+    graph.add_edge(node1,node4)
+    arr = []
+    for i in range(len(graph.get_neighbors(node1))):
+        arr.append(graph.get_neighbors(node1)[i].vertex.value)
+    actual = arr
+    expected = [2,3,4]
+    assert actual == expected
+
+# Neighbors are returned with the weight between nodes included
+def test_get_neighbors_with_weights():
 
     graph = Graph()
+    node1 = graph.add_node(1)
+    node2 = graph.add_node(2)
+    node3=graph.add_node(3)
+    graph.add_edge(node1,node2,20)
+    graph.add_edge(node1,node3,30)
 
-    banana = graph.add_node('banana')
+    arr_of_neighbor_values = []
+    arr_of_weights = []
 
-    apple = graph.add_node('apple')
+    for i in range(len(graph.get_neighbors(node1))):
+        arr_of_neighbor_values.append(graph.get_neighbors(node1)[i].vertex.value)
+        arr_of_weights.append(graph.get_neighbors(node1)[i].weight)
 
-    graph.add_edge(apple, banana, 44)
+    actual1 = arr_of_neighbor_values
+    actual2 = arr_of_weights
 
-    neighbors = graph.get_neighbors(apple)
+    assert actual1 == [2,3]
+    assert actual2 == [20,30]
 
-    assert len(neighbors) == 1
 
-    neighbor_edge = neighbors[0]
+# The proper size is returned, representing the number of nodes in the graph
+def test_graph_size():
 
-    assert neighbor_edge.vertex.value == 'banana'
+    graph = Graph()
+    node1 = graph.add_node(1)
+    node2 = graph.add_node(2)
+    node3=graph.add_node(3)
+    actual = graph.size()
+    assert actual == 3
 
-    assert neighbor_edge.weight == 44
+# A graph with only one node and edge can be properly returned
+def test_graph_with_one_node():
+
+    graph = Graph()
+    node1 = graph.add_node(1)
+    actual = graph.breadth_first_search(node1)
+    assert actual == {1}
+
+# An empty graph properly returns null
+def test_empty_graph():
+    graph = Graph()
+    actual = graph.get_nodes()
+    expected = None
+    assert actual == expected
+
+
+
+
