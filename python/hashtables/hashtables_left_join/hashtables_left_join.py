@@ -85,19 +85,27 @@ class HashTable:
                 current = current.next
         return False
 
+    def get_buckets_keys(self):
+        arr = []
+        for i in self.__buckets:
+            if i:
+                arr.append(i.head.value[0])
+        return arr
+
+
+
 def left_join(hash1:HashTable, hash2:HashTable):
     arr = []
-    for i in range(len(hash1._HashTable__buckets)):
-        if hash1._HashTable__buckets[i]:
-            print(i)
-            if hash2.contains(hash1._HashTable__buckets[i].head.value[0]):
-                arr.append([hash1._HashTable__buckets[i].head.value[0],hash1._HashTable__buckets[i].head.value[1],hash2._HashTable__buckets[i].head.value[1]])
-            else:
-                arr.append([hash1._HashTable__buckets[i].head.value[0],hash1._HashTable__buckets[i].head.value[1],None])
+    keys = hash1.get_buckets_keys()
+    for i in keys:
+        value1 = hash1.get(i)
+        if hash2.contains(i):
+                value2 = hash2.get(i)
+                arr.append([i, value1, value2])
+        else:
+            arr.append([i,value1,None])
 
     return arr
-
-
 
 
 
