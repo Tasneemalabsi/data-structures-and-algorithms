@@ -101,6 +101,35 @@ def test_empty_graph():
     expected = None
     assert actual == expected
 
+#-------------------------------------breadth first search challenge tests------------------------
+
+#test breadth first/ happy path
+def test_breadth_first():
+    graph = Graph()
+    node1 = graph.add_node(1)
+    node2 = graph.add_node(2)
+    graph.add_edge(node1,node2)
+    actual = graph.breadth_first_search(node1)
+    assert actual == {1,2}
+
+#test breadth first/ one node test
+def test_breadth_first_one_node():
+    graph = Graph()
+    node1 = graph.add_node(1)
+    actual = graph.breadth_first_search(node1)
+    assert actual == {1}
+
+#test breadth first/ edge case
+def test_breadth_first_empty_graph():
+    graph = Graph()
+    with pytest.raises(Exception):
+        graph.breadth_first_search()
+
+
+
+
+
+
 
 
 

@@ -10,14 +10,13 @@ class Vertex:
     def __init__(self, value):
         """
     Initalization for a Vertex to hold a value.
-
     """
         self.value = value
 
 
 class Queue:
     def __init__(self):
-        self.dq = deque()
+        self.dq = deque
 
     def enqueue(self, value):
         self.dq.appendleft(value)
@@ -39,7 +38,6 @@ class Stack:
     def push(self, value):
         """
 		Store the passed value in a node and then push the node on top of the stack.
-
 		PARAMETERS
 		----------
 			value: any
@@ -60,7 +58,6 @@ class Edge:
     If specified, assigning a weight to the edge
     Arguments: 2 nodes to be connected by the edge, weight (optional)
     Returns: nothing
-
   """
     def __init__(self, vertex, weight):
         self.vertex = vertex
@@ -117,44 +114,47 @@ class Graph:
         return self.__adjacency_list.get(vertex, [])
 
 
-    def breadth_first_search(self, start_vertex, action=(lambda vertex: None)):
+    def breadth_first_search(self, start_vertex):
         """
-        this method gets the values inside all of the nodes stored in the graph 
+        this method gets the values inside all of the nodes stored in the graph
         Args:
             start_vertex (Vertex object)
             action (function, optional): [description]. Defaults to (lambda vertex: None).
-
         Returns:
             set of values
         """
-        queue = Queue()
+        if not start_vertex:
+            raise Exception('no starting node')
+        queue = []
         visited = set()
 
-        queue.enqueue(start_vertex)
+        queue.append(start_vertex)
         visited.add(start_vertex.value)
-
         while len(queue):
-            current_vertex = queue.dequeue()
-            action(current_vertex)
-
+            current_vertex = queue.pop(0)
             neighbors = self.get_neighbors(current_vertex)
-
             for edge in neighbors:
                 neighbor = edge.vertex
 
                 if neighbor not in visited:
                     visited.add(neighbor.value)
-                    queue.enqueue(neighbor)
+                    queue.append(neighbor)
         return visited
 
 
 if __name__ == "__main__":
     graph =Graph()
-    node1=graph.add_node(1)
-    node2=graph.add_node(2)
-    node3=graph.add_node(3)
-    node4=graph.add_node(4)
+    node1=graph.add_node('1')
+    node2=graph.add_node('2')
+    node3=graph.add_node('3')
+    node4=graph.add_node('4')
     graph.add_edge(node1,node2)
     graph.add_edge(node1,node3)
     graph.add_edge(node1,node4)
-    print(graph.get_neighbors(node1)[0].vertex.value)
+    # print(graph.get_neighbors(node1))
+    print(graph.breadth_first_search(node1))
+    # queue = Queue()
+    # queue.enqueue('1')
+    # queue.enqueue('2')
+    # queue.enqueue('3')
+    # print(queue.dequeue())

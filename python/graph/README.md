@@ -3,7 +3,13 @@
 A graph is a pictorial representation of a set of objects where some pairs of objects are connected by links. The interconnected objects are represented by points termed as vertices, and the links that connect the vertices are called edges.
 
 ## Challenge
-Implement your own Graph. The graph should be represented as an adjacency list, and should include the following methods: add node, add edge, get nodes, get neighbors, size
+Implement your own Graph. The graph should be represented as an adjacency list, and should include the following methods: add node, add edge, get nodes, get neighbors, size, breadth first search .
+
+## WhiteBoard:
+
+Breadth First Search:
+
+![breadth](breadth-first.png)
 
 
 ## Approach & Efficiency
@@ -44,6 +50,7 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
                         big O of n for time // O(n^2)
 
                         big O of n for space // O(n) -> linear
+
 
 ## API
 - add_node() method: adds a new node to the graph
