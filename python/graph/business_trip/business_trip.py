@@ -14,48 +14,6 @@ class Vertex:
         self.value = value
 
 
-class Queue:
-    def __init__(self, collection=[]):
-        self.data = collection
-
-    def peek(self):
-        if len(self.data):
-            return True
-        return False
-
-    def enqueue(self,item):
-        self.data.append(item)
-
-    def dequeue(self):
-        return self.data.pop(0)
-    def __len__(self):
-        return len(self.data)
-
-
-class Stack:
-    def __init__(self):
-        """
-		The constructor method for the stack class and it initializes the dq property to a new double ended queue instance.
-		"""
-        self.dq = deque()
-
-    def push(self, value):
-        """
-		Store the passed value in a node and then push the node on top of the stack.
-		PARAMETERS
-		----------
-			value: any
-				The value that will get stored in a node to be pushed on top of the stack.
-		"""
-        self.dq.append(value)
-
-    def pop(self):
-        """
-		Return the top node in a stack.
-		"""
-        self.dq.pop()
-
-
 class Edge:
     """
     a class for Adding a new edge between two nodes in the graph
@@ -118,32 +76,6 @@ class Graph:
         return self.__adjacency_list.get(vertex, [])
 
 
-    def breadth_first_search(self, start_vertex):
-        """
-        this method gets the values inside all of the nodes stored in the graph
-        Args:
-            start_vertex (Vertex object)
-            action (function, optional): [description]. Defaults to (lambda vertex: None).
-        Returns:
-            set of values
-        """
-        if not start_vertex:
-            raise Exception('no starting node')
-        queue = Queue()
-        visited = set()
-
-        queue.enqueue(start_vertex)
-        visited.add(start_vertex.value)
-        while len(queue):
-            current_vertex = queue.dequeue()
-            neighbors = self.get_neighbors(current_vertex)
-            for edge in neighbors:
-                neighbor = edge.vertex
-
-                if neighbor not in visited:
-                    visited.add(neighbor.value)
-                    queue.enqueue(neighbor)
-        return visited
 
 def business_trip(graph:Graph, arr):
     sum = 0
