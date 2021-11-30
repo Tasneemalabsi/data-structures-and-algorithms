@@ -125,6 +125,34 @@ def test_breadth_first_empty_graph():
     with pytest.raises(Exception):
         graph.breadth_first_search()
 
+#--------------------------------------depth first search challenge tests------------------------
+
+#test depth first/ happy path
+def test_depth_first():
+    graph =Graph()
+    node1=graph.add_node(1)
+    node2=graph.add_node(2)
+    node3=graph.add_node(3)
+    node4=graph.add_node(4)
+    graph.add_edge(node1,node2,40)
+    graph.add_edge(node1,node3,40)
+    graph.add_edge(node1,node4,22)
+    graph.add_edge(node2,node3,12)
+    actual = graph.depth_first(node1)
+    assert actual == [1,2,3,4]
+
+#test depth first/ one node test
+def test_depth_first_one_node():
+    graph = Graph()
+    node1 = graph.add_node(1)
+    actual = graph.depth_first(node1)
+    assert actual == [1]
+
+#test depth first/ edge case
+def test_depth_first_empty_graph():
+    graph = Graph()
+    with pytest.raises(Exception):
+        graph.depth_first()
 
 
 

@@ -90,6 +90,7 @@ def business_trip(graph:Graph, arr):
                 if neighbor.vertex in arr:
                     result = True
                     sum = sum + neighbor.weight
+                    break
     return result, f"${sum}"
 
 
@@ -105,9 +106,10 @@ if __name__ == "__main__":
     graph.add_edge(node1,node3,40)
     graph.add_edge(node1,node4,22)
     graph.add_edge(node2,node3,12)
+    # graph.add_edge(node2,node1,12)
     n = Vertex(1)
     # print(graph.get_neighbors(node1)[0].vertex.value)
-    print(business_trip(graph, [node4,n]))
+    print(business_trip(graph, [node1, node2,node4]))
     # queue = Queue()
     # queue.enqueue('1')
     # queue.enqueue('2')

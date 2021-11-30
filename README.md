@@ -49,4 +49,5 @@ here is the table of contents of the code-challenges of 401:
 - [graph](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/graph/python/graph/README.md)
 - [graph-breadth-first](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/graph-breadth-first/python/graph/README.md)
 - [graph-business-trip](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/graph-business-trip/python/graph/business_trip/README.md)
+- [graph-depth-first](https://github.com/Tasneemalabsi/data-structures-and-algorithms/blob/graph-depth-first/python/graph/README.md)
 

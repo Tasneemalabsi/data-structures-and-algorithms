@@ -11,6 +11,10 @@ Breadth First Search:
 
 ![breadth](breadth-first.png)
 
+Depth First Search:
+
+![depth](depth_first.png)
+
 
 ## Approach & Efficiency
 
@@ -51,6 +55,12 @@ Breadth First Search:
 
                         big O of n for space // O(n) -> linear
 
+- for depth_first_search() method:
+
+                        big O of n for time // O(nlogn) -> logarithmic
+
+                        big O of n for space // O(n) -> linear
+
 
 ## API
 - add_node() method: adds a new node to the graph
@@ -59,3 +69,4 @@ Breadth First Search:
 - get_nodes() method : returns all of the nodes in the graph
 - get_neighbors() method: returns all of the nodes that are connected to a certain input node by an edge
 - breadth_first_search() method: returns all of the values stored inside the graph's nodes .
+- depth_first_search() method: returns all of the values stored inside the graph's nodes in the pre order.

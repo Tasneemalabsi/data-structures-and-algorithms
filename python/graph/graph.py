@@ -13,7 +13,6 @@ class Vertex:
     """
         self.value = value
 
-
 class Queue:
     def __init__(self, collection=[]):
         self.data = collection
@@ -54,6 +53,13 @@ class Stack:
 		Return the top node in a stack.
 		"""
         self.dq.pop()
+
+    def isEmpty(self):
+        if not self.dq.pop():
+            return True
+        else:
+            return False
+
 
 
 class Edge:
@@ -145,20 +151,34 @@ class Graph:
                     queue.enqueue(neighbor)
         return visited
 
-def business_trip(graph:Graph, arr):
-    sum = 0
-    result = False
-    if not len(arr) or not graph.size:
-        raise Exception("one of the inputs are empty, check it !! ")
-    for city in arr:
-        if city not in list(graph.get_nodes()):
-            raise Exception("one or more of the cities you entered doesn't exist, check it !!")
-        if graph.get_neighbors(city):
-            for neighbor in graph.get_neighbors(city):
-                if neighbor.vertex in arr:
-                    result = True
-                    sum = sum + neighbor.weight
-    return result, f"${sum}"
+    def depth_first(self, starting_node):
+        """
+        this method gets the values inside all of the nodes stored in the graph in the depth pre order
+        Args:
+            start_vertex (Vertex object)
+        Returns:
+            array of values
+        """
+        arr = []
+        visited = set()
+        if not starting_node:
+            raise Exception('no starting node')
+        def walk(node):
+            visited.add(node)
+            arr.append(node.value)
+            neighbors = self.get_neighbors(node)
+            if len(neighbors):
+                for i in neighbors:
+                    if i.vertex not in visited:
+                        walk(i.vertex)
+            return arr
+
+        res = walk(starting_node)
+        return res
+
+
+
+
 
 
 
@@ -174,8 +194,8 @@ if __name__ == "__main__":
     graph.add_edge(node1,node4,22)
     graph.add_edge(node2,node3,12)
     n = Vertex(1)
-    # print(graph.get_neighbors(node1)[0].vertex.value)
-    print(business_trip(graph, [node4,n]))
+    # print(g.get_neighbors(node4)[0].vertex.value)
+    print(graph.depth_first(node1))
     # queue = Queue()
     # queue.enqueue('1')
     # queue.enqueue('2')
